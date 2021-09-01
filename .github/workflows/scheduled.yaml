@@ -1,0 +1,16 @@
+name: daily-cron-job
+on:
+  schedule:
+    - cron: '0 23 * * * *'
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: daily-cron-job
+        run: |
+          curl --request GET \
+          --url 'https://faqraou.com/api/v1/pages/dispatch' \
+                   --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjJiYWE2ZWE2NGU0YWFkZmU0MzM2ZThlNjIyNDE3ZjViN2YwNDJjODk1NzFiNzM1NjM4NzA5NTM1ODJlNzM1OTA4NWE3N2FkZjE4ZDQwMzYiLCJpYXQiOjE2MzA1MTE0MjksIm5iZiI6MTYzMDUxMTQyOSwiZXhwIjoxNjYyMDQ3NDI5LCJzdWIiOiIyMDIiLCJzY29wZXMiOltdfQ.OzWhqwhOLT-3GsoaME1HFdLt61nbYG8sxc-Yl6MBb-tgmFEYFXQRdznMOLBOJ9OJkuggLuj0_oUaLg0sKOku3vJ4ESRv57fw_mi2XV8Afc5UnEK2xE1_Mkv7cd1fnCmoIp3YahgtGZlw9GrxtM_hXYNJnFC7CYTTeLANaWT5yJi2Lh44Ab1vrFChcXYKAcjbLesOpLgqWAsvweSwnnp0nGynUEXIAlgb2qdOQxREu1103kIFYfyCMTuKn-bmoJP8A0py0t_34A1mTCt_a5kYz83Beos0q3r9WFA6r-4POVmQMMFLKn8IHD-c2d_6njwjGsg-hI964ltkFi0cTR-FS7RqMOk3SzHtGmeHImgBaDDDH-PVFHZusWvmc42i-p1Fhusu7RMAf3c84rVYkJIlVFlnALJvNu_osoi-D6arb3juaHJPvB75_4insghNRTPQBXuHmy01_suP9MXbQQQAyPo6UtEhQd4tyMmf5rLExqHNCuKIsf1kngrK9BXzA1y5uI03uDtqkAnx4Ct5887L4E0zvD-5chsZZJkh8yL8uNhe0uYVMy0IkE3J7beIFS-45Uv6j_cqQLzqQEQBUD9mCBbJMIePg-s6zIPcZIf5wSJAvO1KdEr2dTuBHr4Dvg6dpDMlPPyBg-H_6P_qG07lMEfsS8Pa6xT1TkQOojOMTLk'
